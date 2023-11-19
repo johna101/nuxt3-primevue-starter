@@ -98,9 +98,6 @@ devDependencies:
   unstorage:
     specifier: ^1.9.0
     version: 1.9.0
-  vitest:
-    specifier: ^0.34.6
-    version: 0.34.6(@vitest/ui@0.34.6)(jsdom@22.1.0)(sass@1.69.5)
 
 packages:
 
