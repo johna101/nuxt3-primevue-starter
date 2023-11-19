@@ -109,6 +109,7 @@ const submitHandler = async () => {
 </script>
 <template>
   <div class="card flex flex-wrap gap-12">
+    hello
     <div class="basis-1/2 md:basis-1/3">
       <span class="" />
       <div class="myFormkit">
