@@ -49,6 +49,8 @@ export default defineNuxtConfig({
   css: [
     'primevue/resources/primevue.css',
     'primeicons/primeicons.css',
+    'ag-grid-community/styles/ag-grid.css',
+    'ag-grid-community/styles/ag-theme-alpine.css',
     '@sfxcode/formkit-primevue/dist/sass/formkit-primevue.scss'
   ],
   build: {

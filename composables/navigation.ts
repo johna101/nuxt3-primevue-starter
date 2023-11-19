@@ -11,6 +11,7 @@ export function useNavigationMenu () {
         label: 'PrimeVue',
         items: [
           { label: 'DataTable', icon: 'pi pi-fw pi-table', to: '/prime/datatable' },
+          { label: 'AG DataTable', icon: 'pi pi-fw pi-table', to: '/prime/agdatatable' },
           { label: 'Messages', icon: 'pi pi-fw pi-user-edit', to: '/prime/messages' },
           { label: 'Validation', icon: 'pi pi-fw pi-user-edit', to: '/prime/validation' }
         ]
