@@ -6,7 +6,8 @@ export const useDataStore = defineStore({
 
   state: () => ({
     appVersion: useRuntimeConfig().public.APP_VERSION,
-    products: []
+    products: [],
+    riskData: null
   }),
   actions: {
     async initData () {
@@ -16,6 +17,13 @@ export const useDataStore = defineStore({
           this.products = d.data
         })
           .catch(error => consola.error(error))
+      }
+      if (this.riskData === null) {
+        consola.debug('fetching risk data ...')
+        await fetch('/api/riskratings').then(res => res.json()).then((d) => {
+          this.riskData = d.data
+        })
+            .catch(error => consola.error(error))
       }
     }
   }
