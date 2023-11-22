@@ -1,19 +1,21 @@
 <template>
-  Test...
-  <ag-grid-vue
-      style="width: 500px; height: 500px"
-      class="ag-theme-alpine"
-      :column-defs="columnDefs"
-      :row-data="risks"
-      :default-col-def='defaultColDef'
-  />
-  length: {{ risks?.length }}
-  <div>Product length: {{ products?.data?.length }}</div>
-  Risks
+  <div v-if="pending">Loading...</div>
+  <div v-else>
+    <ag-grid-vue
+        style="width: 500px; height: 500px"
+        class="ag-theme-alpine"
+        :column-defs="columnDefs"
+        :row-data="risks"
+        :default-col-def='defaultColDef'
+    />
+    length: {{ risks?.length }}
+    <div>Product length: {{ products?.data?.length }}</div>
+    Risks
 
-  <pre>Risk error: {{ riskError}}</pre>
-<!--  <pre>{{ risks}}</pre>-->
-<!--  <pre>{{ mountains}}</pre>-->
+    <pre>Risk error: {{ riskError }}</pre>
+    <!--  <pre>{{ risks}}</pre>-->
+    <!--  <pre>{{ mountains}}</pre>-->
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -21,7 +23,9 @@ import {AgGridVue} from 'ag-grid-vue3'
 
 const {data: products} = await useFetch('/api/products')
 
-const {data: risks, error: riskError} = await useFetch(`https://snd-portal-dev.azurewebsites.net/api/referenceData/RiskRatings`)
+const {pending, data: risks, error: riskError} = useFetch(`https://snd-portal-dev.azurewebsites.net/api/referenceData/RiskRatings`, {
+  server: false,
+})
 // const {data: risks} = await useAsyncData("risks", () => $fetch(`https://localhost:5010/api/referenceData/ForRiskRatings`))
 // const { risks: any } = await useAsyncData("risk", () => $fetch(`https://www.ag-grid.com/example-assets/row-data.json`))
 
