@@ -15,12 +15,14 @@ export const useDataStore = defineStore({
         consola.debug('fetching data ...')
         await fetch('/api/products').then(res => res.json()).then((d) => {
           this.products = d.data
+          console.log('products fetched ...', this.products)
         })
-          .catch(error => consola.error(error))
+          .catch(error => console.error(error))
       }
       if (this.riskData === null) {
         consola.debug('fetching risk data ...')
         await fetch('/api/riskratings').then(res => res.json()).then((d) => {
+          console.log('risk ratings fetched ...', d.data)
           this.riskData = d.data
         })
             .catch(error => consola.error(error))
