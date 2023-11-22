@@ -4,6 +4,7 @@ import {
   presetTypography, presetUno, presetWebFonts,
   transformerDirectives, transformerVariantGroup
 } from 'unocss'
+// import FormKitVariants from '@formkit/themes/tailwindcss'
 
 export default defineConfig({
   shortcuts: [
