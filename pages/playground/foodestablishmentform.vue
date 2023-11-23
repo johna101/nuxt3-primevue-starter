@@ -120,9 +120,9 @@
           placeholder="Please select"
           :options="dropdownOptions"
           validation="required"
-          :show-clear="true"
+          :showClear="true"
           :filter="true"
-        />
+        /> 
       </div>
       <pre>{{ value }}</pre>
     </FormKit>
@@ -149,7 +149,7 @@ const selectOptions = [
 
 const dropdownOptions = [
   {
-    label: 'very page load',
+    label: 'Every page load',
     value: 'refresh'
   },
   {
