@@ -35,7 +35,7 @@ export const complaintDefaults = {
   }
 }
 
-export const data = ref({
+export const formData = ref({
   ...activityDefaults,
   ...responsibilityDefaults,
   ...complaintDefaults

@@ -12,7 +12,8 @@ export function useNavigationMenu () {
         items: [
           { label: 'Auto Import', icon: 'pi pi-fw pi-user-edit', to: '/playground/autoimport' },
           { label: 'Food Est. Form', icon: 'pi pi-fw pi-user-edit', to: '/playground/foodestablishmentform' },
-          { label: 'SND form', icon: 'pi pi-fw pi-user-edit', to: '/playground/sndform' }
+          { label: 'SND form', icon: 'pi pi-fw pi-user-edit', to: '/playground/sndform' },
+          { label: 'Intervention form', icon: 'pi pi-fw pi-user-edit', to: '/playground/interventionform' }
         ]
       },
       {

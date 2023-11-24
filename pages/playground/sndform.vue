@@ -1,9 +1,9 @@
 <script setup lang='ts'>
 import { FormKit, FormKitSchema } from '@formkit/vue'
 import { ref } from 'vue'
-// import {complaintForm as form, data} from "~/schemas/complaint";
+import {complaintForm as form, formData} from "~/schemas/complaint";
 // import {enforcementForm as form, data} from "~/schemas/enforcement";
-import { interventionForm as form, formData } from '~/schemas/intervention'
+// import { interventionForm as form, formData } from '~/schemas/intervention'
 
 const schema = reactive(form)
 const data = ref(formData)
