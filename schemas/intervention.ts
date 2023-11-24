@@ -1,4 +1,4 @@
-import {ref} from "vue";
+import {reactive} from "vue";
 import {activityDefaults, activityForm} from "~/schemas/activity";
 import {responsibilityDefaults, responsibilityForm} from "~/schemas/responsibility";
 
@@ -139,12 +139,12 @@ const interventionDefaults = {
     }
 }
 
-export const data = ref({
-        ...activityDefaults,
-        ...responsibilityDefaults,
-        ...interventionDefaults,
-    }
-)
+export const formData = {
+    id: '123456',
+    ...activityDefaults,
+    ...responsibilityDefaults,
+    ...interventionDefaults,
+}
 
 
 export const interventionForm =

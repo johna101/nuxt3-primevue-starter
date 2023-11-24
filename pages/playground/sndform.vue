@@ -1,15 +1,17 @@
 <script setup lang='ts'>
 import {FormKit, FormKitSchema} from '@formkit/vue'
-import {ref, reactive} from 'vue'
+import {ref} from 'vue'
 // import {complaintForm as form, data} from "~/schemas/complaint";
 // import {enforcementForm as form, data} from "~/schemas/enforcement";
-import {interventionForm as form, data} from "~/schemas/intervention";
+import {interventionForm as form, formData} from "~/schemas/intervention";
 
 const schema = reactive(form)
-
+const data = ref(formData)
 
 const submitHandler = async () => {
   // Lets pretend this is an ajax request:
+  data.value.activity = 'Changed by submitHandler'
+  data.value.id = 'Changed by submitHandler'
   console.log('submitHandler', data)
   await new Promise(resolve => setTimeout(resolve, 1000))
 }

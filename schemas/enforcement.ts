@@ -1,7 +1,6 @@
-import {ref} from "vue";
+import {reactive, watch} from "vue";
 import {activityDefaults, activityForm} from "~/schemas/activity";
 import {responsibilityDefaults, responsibilityForm} from "~/schemas/responsibility";
-import {complaintDefaults, complaintTypes} from "~/schemas/complaint";
 
 export const enforcementTypes = [
     {
@@ -128,7 +127,7 @@ export const enforcementDefaults = {
     }
 }
 
-export const data = ref({
+export const data = reactive({
         ...activityDefaults,
         ...responsibilityDefaults,
         ...enforcementDefaults,
