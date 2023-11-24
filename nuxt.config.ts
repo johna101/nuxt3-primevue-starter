@@ -50,7 +50,7 @@ export default defineNuxtConfig({
     'primevue/resources/primevue.css',
     'primeicons/primeicons.css',
     'ag-grid-community/styles/ag-grid.css',
-    'ag-grid-community/styles/ag-theme-alpine.css',
+    'ag-grid-community/styles/ag-theme-alpine.css'
   ],
   build: {
     transpile: ['nuxt', 'primevue', 'formkit-primevue']

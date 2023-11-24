@@ -25,7 +25,7 @@ export const useDataStore = defineStore({
           console.log('risk ratings fetched ...', d.data)
           this.riskData = d.data
         })
-            .catch(error => consola.error(error))
+          .catch(error => consola.error(error))
       }
     }
   }

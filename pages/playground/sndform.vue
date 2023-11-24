@@ -1,9 +1,9 @@
 <script setup lang='ts'>
-import {FormKit, FormKitSchema} from '@formkit/vue'
-import {ref} from 'vue'
+import { FormKit, FormKitSchema } from '@formkit/vue'
+import { ref } from 'vue'
 // import {complaintForm as form, data} from "~/schemas/complaint";
 // import {enforcementForm as form, data} from "~/schemas/enforcement";
-import {interventionForm as form, formData} from "~/schemas/intervention";
+import { interventionForm as form, formData } from '~/schemas/intervention'
 
 const schema = reactive(form)
 const data = ref(formData)
@@ -20,21 +20,21 @@ const submitHandler = async () => {
 <template>
   <div class="card flex flex-wrap gap-12">
     <div class="basis-1/2 md:basis-1/3">
-      <span class=""/>
+      <span class="" />
       <div class="myFormkit">
         <FormKit
-            #default="{ value }"
-            id="form"
-            v-model="data"
-            type="form"
-            :submit-attrs="{
+          id="form"
+          v-slot="{ value }"
+          v-model="data"
+          type="form"
+          :submit-attrs="{
             inputClass: 'p-button p-component',
             wrapperClass: '',
             outerClass: ''
           }"
-            @submit="submitHandler"
+          @submit="submitHandler"
         >
-          <FormKitSchema :schema="schema" :data="data"/>
+          <FormKitSchema :schema="schema" :data="data" />
         </FormKit>
       </div>
     </div>

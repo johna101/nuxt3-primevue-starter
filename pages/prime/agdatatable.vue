@@ -1,12 +1,14 @@
 <template>
-  <div v-if="pending">Loading...</div>
+  <div v-if="pending">
+    Loading...
+  </div>
   <div v-else>
     <ag-grid-vue
-        style="width: 500px; height: 500px"
-        class="ag-theme-alpine"
-        :column-defs="columnDefs"
-        :row-data="risks"
-        :default-col-def='defaultColDef'
+      style="width: 500px; height: 500px"
+      class="ag-theme-alpine"
+      :column-defs="columnDefs"
+      :row-data="risks"
+      :default-col-def="defaultColDef"
     />
     length: {{ risks?.length }}
     <div>Product length: {{ products?.data?.length }}</div>
@@ -23,16 +25,16 @@ import { AgGridVue } from 'ag-grid-vue3'
 
 const { data: products } = await useFetch('/api/products')
 
-const {pending, data: risks, error: riskError} = useFetch(`https://snd-portal-dev.azurewebsites.net/api/referenceData/RiskRatings`, {
-  server: false,
+const { pending, data: risks, error: riskError } = useFetch('https://snd-portal-dev.azurewebsites.net/api/referenceData/RiskRatings', {
+  server: false
 })
 // const {data: risks} = await useAsyncData("risks", () => $fetch(`https://localhost:5010/api/referenceData/ForRiskRatings`))
 // const { risks: any } = await useAsyncData("risk", () => $fetch(`https://www.ag-grid.com/example-assets/row-data.json`))
 
 // const { data: mountains, error } = await useFetch('https://api.nuxtjs.dev/mountains')
 const columnDefs = [
-  {headerName: 'Id', field: 'Band'},
-  {headerName: 'Text', field: 'Responsibility'}
+  { headerName: 'Id', field: 'Band' },
+  { headerName: 'Text', field: 'Responsibility' }
 ]
 
 const defaultColDef = {
