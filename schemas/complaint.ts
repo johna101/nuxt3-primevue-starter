@@ -1,3 +1,7 @@
+import {activityForm, activityDefaults} from "~/schemas/activity";
+import {ref} from "vue";
+import {responsibilityDefaults, responsibilityForm} from "~/schemas/responsibility";
+
 export const complaintTypes = [
     {
         value: 0,
@@ -22,17 +26,37 @@ export const complaintTypes = [
 ]
 
 export const complaintDefaults = {
-    complaintsTypeId: 1,
+    "activityTypeId": 1,
+    "activity": "Complaint",
+    "date": "2022-11-01T00:00:00.000Z",
+    "responsibilityTypeCode": "FS",
+    "complaint": {
+        "complaintsTypeId": 3
+    }
 }
 
-export const complaintForm = [
-    {
-        $formkit: 'dropdown',
-        name: 'complaintsTypeId',
-        label: 'Complaint Type',
-        // help: 'Complaint Type',
-        validation: 'required',
-        value: 1,
-        options: complaintTypes,
-    },
-]
+export const data = ref({
+        ...activityDefaults,
+        ...responsibilityDefaults,
+        ...complaintDefaults,
+        // ...complaintDefaults
+    }
+)
+
+export const complaintForm =
+    [
+        ...activityForm,
+        ...responsibilityForm,
+        {
+            $formkit: 'group',
+            name: 'complaint',
+            children: [{
+                $formkit: 'dropdown',
+                name: 'complaintsTypeId',
+                label: 'Complaint Type',
+                validation: 'required',
+                value: 1,
+                options: complaintTypes
+            }]
+        }
+    ]

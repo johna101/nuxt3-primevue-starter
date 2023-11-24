@@ -1,3 +1,8 @@
+import {ref} from "vue";
+import {activityDefaults, activityForm} from "~/schemas/activity";
+import {responsibilityDefaults, responsibilityForm} from "~/schemas/responsibility";
+import {complaintDefaults, complaintTypes} from "~/schemas/complaint";
+
 export const enforcementTypes = [
     {
         value: 1,
@@ -113,30 +118,37 @@ export const enforcementTypes = [
     }
 ]
 
-export const initialEnforcement = {
-    id: 0,
-    enforcementDate: new Date(),
-    enforcementsTypeId: 1,
-    responsibilityTypeCode: "FH"
+export const enforcementDefaults = {
+    "activityTypeId": 2,
+    "activity": "Enforcement",
+    "date": "2022-11-01T00:00:00.000Z",
+    "responsibilityTypeCode": "FS",
+    "enforcement": {
+        "enforcementsTypeId": 1
+    }
 }
 
-export const enforcement = [
-    {
-        $formkit: 'primeDropdown',
-        name: 'enforcementsTypeId',
-        label: 'Enforcement Type',
-        // help: 'Enforcement Type',
-        validation: 'required',
-        options: enforcementTypes,
-    },
-    {
-        $formkit: 'dropdown',
-        name: 'riskRating',
-        label: 'Risk Rating',
-    //     help: 'Risk Rating At Intervention',
-        validation: 'required',
-        options: enforcementTypes,
-        alwaysLoadOnOpen: true,
+export const data = ref({
+        ...activityDefaults,
+        ...responsibilityDefaults,
+        ...enforcementDefaults,
     }
-]
+)
 
+export const enforcementForm =
+    [
+        ...activityForm,
+        ...responsibilityForm,
+        {
+            $formkit: 'group',
+            name: 'enforcement',
+            children: [{
+                $formkit: 'dropdown',
+                name: 'enforcementsTypeId',
+                label: 'Enforcement Type',
+                validation: 'required',
+                value: 1,
+                options: enforcementTypes
+            }]
+        }
+    ]

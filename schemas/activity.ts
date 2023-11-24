@@ -26,29 +26,32 @@ export const activityTypes = [
 //     ]
 
 export const activityDefaults = {
-    activityTypeId: 0,
+    activity: 'No Activity set',
     activityLabel: function () {
-        return activityTypes.find((activityType) =>
-            activityType.__original === this.activityTypeId)?.label ?? 'Activity Type'
+        return this.activity ?? 'Activity Type'
     }
 }
 
 export const activityForm = [
     {
-        $formkit: 'text',
-        name: 'id',
-        label: 'Id',
-        readonly: true,
+        $el: 'h3',
+        children: '$activity'
     },
     {
-        $formkit: 'dropdown',
-        name: 'activityTypeId',
-        label: 'Activity Type',
-        // help: 'Complaint Type',
-        validation: 'required',
-        options: activityTypes,
-        value: '1',
+        $formkit: 'text',
+        name: 'id',
+        label: 'Reference',
+        readonly: false,
     },
+    // {
+    //     $formkit: 'dropdown',
+    //     name: 'activityTypeId',
+    //     label: 'Activity Type',
+    //     // help: 'Complaint Type',
+    //     validation: 'required',
+    //     options: activityTypes,
+    //     value: '1',
+    // },
     {
         $formkit: 'datepicker',
         name: 'date',
@@ -56,7 +59,6 @@ export const activityForm = [
         placeholder: '$activityTypeId',
         // help: 'Date of enforcement',
         validation: 'required',
-        value: new Date(),
     },
     {
         $formkit: 'dropdown',
@@ -70,6 +72,5 @@ export const activityForm = [
             {label: 'Food Standards', value: 'FS'},
         ],
         value: 'FL',
-
-    }
+    },
 ]

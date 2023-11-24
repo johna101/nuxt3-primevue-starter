@@ -1,18 +1,12 @@
 <script setup lang='ts'>
 import {FormKit, FormKitSchema} from '@formkit/vue'
 import {ref, reactive} from 'vue'
-// import {intervention as schema, riskRatings} from '~/schemas/Intervention'
-import {enforcement as enforcementForm, initialEnforcement as initialEnforcement} from "~/schemas/enforcement";
-import {complaintForm as complaintForm, complaintDefaults} from "~/schemas/complaint";
-import {activityForm, activityDefaults} from "~/schemas/activity";
+// import {complaintForm as form, data} from "~/schemas/complaint";
+// import {enforcementForm as form, data} from "~/schemas/enforcement";
+import {interventionForm as form, data} from "~/schemas/intervention";
 
-const schema = reactive(activityForm)
+const schema = reactive(form)
 
-const data = ref({
-      ...activityDefaults,
-      // ...complaintDefaults
-    }
-)
 
 const submitHandler = async () => {
   // Lets pretend this is an ajax request:
@@ -39,10 +33,6 @@ const submitHandler = async () => {
             @submit="submitHandler"
         >
           <FormKitSchema :schema="schema" :data="data"/>
-          <pre>{{ value }}</pre>
-          <FormKit type="group" name="complaint">
-            <FormKitSchema :schema="complaintForm"/>
-          </FormKit>
         </FormKit>
       </div>
     </div>
