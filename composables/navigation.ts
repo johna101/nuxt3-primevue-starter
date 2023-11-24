@@ -11,7 +11,8 @@ export function useNavigationMenu () {
         label: 'Playground',
         items: [
           { label: 'Auto Import', icon: 'pi pi-fw pi-user-edit', to: '/playground/autoimport' },
-          { label: 'Food Est. Form', icon: 'pi pi-fw pi-user-edit', to: '/playground/foodestablishmentform' }
+          { label: 'Food Est. Form', icon: 'pi pi-fw pi-user-edit', to: '/playground/foodestablishmentform' },
+          { label: 'SND form', icon: 'pi pi-fw pi-user-edit', to: '/playground/sndform' }
         ]
       },
       {
@@ -21,7 +22,6 @@ export function useNavigationMenu () {
           { label: 'AG DataTable', icon: 'pi pi-fw pi-table', to: '/prime/agdatatable' },
           { label: 'Messages', icon: 'pi pi-fw pi-user-edit', to: '/prime/messages' },
           { label: 'Validation', icon: 'pi pi-fw pi-user-edit', to: '/prime/validation' },
-          { label: 'Food Est. Form', icon: 'pi pi-fw pi-user-edit', to: '/prime/foodestablishmentform' }
 
         ]
       },
