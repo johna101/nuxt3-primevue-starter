@@ -609,7 +609,7 @@
     "@formkit/core" "1.3.0"
     "@formkit/utils" "1.3.0"
 
-"@formkit/i18n@1.3.0", "@formkit/i18n@^1.3.0":
+"@formkit/i18n@1.3.0":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@formkit/i18n/-/i18n-1.3.0.tgz#25a4220a6fa44c1d2113fa998e5fd76daa0d1ca2"
   integrity sha512-nHMLIWxM9J9o3p94wQwhvWOqz/JtNCxErpuD2bKTxQP5DTwHkYfF0ajHclT/8FdHXx5a9+VhiI7mD9rVCtcdBA==
@@ -693,7 +693,7 @@
     "@formkit/observer" "1.3.0"
     "@formkit/utils" "1.3.0"
 
-"@formkit/vue@1.3.0", "@formkit/vue@^1.3.0":
+"@formkit/vue@1.3.0":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@formkit/vue/-/vue-1.3.0.tgz#1da79d87fc729dd1f4eb6cd9738d8fb7745224fb"
   integrity sha512-4MM5qhFlOktJWta7cTG2H+PI8Z8Fm2YH+R3tcPnNEXM+KLLig5Xiy99Aaf3Xef5lR/ZXQdoSCJyT3OUd6V4eTA==
@@ -1652,16 +1652,6 @@
     "@types/estree" "^1.0.0"
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
-
-"@sfxcode/formkit-primevue@^1.3.0":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@sfxcode/formkit-primevue/-/formkit-primevue-1.5.1.tgz#e6f2a77e7a9dc85d8eca9d8ebba72120e74d9c5a"
-  integrity sha512-5dxGrL5Mo6YrCgvOmMYMU2qTud0oBwJJMyP8if/tm1BRfOzI/UQGcUCNI5iPOuWT4GUs/3W2tem5L+XEYszw6g==
-  dependencies:
-    "@formkit/i18n" "^1.3.0"
-    "@formkit/vue" "^1.3.0"
-    primeicons "^6.0.1"
-    primevue "^3.40.1"
 
 "@sigstore/bundle@^2.1.0":
   version "2.1.0"
