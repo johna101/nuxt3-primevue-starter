@@ -38,7 +38,7 @@ const interventionTypes = [
 const fsRatings = ['A', 'B', 'C', 'no rating']
 const flfhRatings = ['A', 'B', 'C', 'D', 'E', 'no rating']
 
-function isValid(node) {
+function isValid (node) {
   const ratings = this.getRiskRating('FS')
   console.log('ratings', ratings, node.value)
   return ratings.includes(node.value)

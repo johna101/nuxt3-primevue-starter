@@ -1,4 +1,3 @@
-import { reactive } from 'vue'
 import { activityDefaults, activityForm } from '~/schemas/activity'
 import { responsibilityDefaults, responsibilityForm } from '~/schemas/responsibility'
 
