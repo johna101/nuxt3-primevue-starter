@@ -5,6 +5,5 @@ dist
 .nuxt
 .env
 coverage
-/.idea/
 
 .DS_Store
