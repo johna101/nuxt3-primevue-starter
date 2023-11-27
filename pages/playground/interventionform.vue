@@ -3,7 +3,7 @@ import { FormKit, FormKitMessages } from '@formkit/vue'
 import { ref } from 'vue'
 // import {complaintForm as form, data} from "~/schemas/complaint";
 // import {enforcementForm as form, data} from "~/schemas/enforcement";
-import { createNode, getNode } from '@formkit/core'
+import { getNode } from '@formkit/core'
 import { flfhRatings, formData, fsRatings, getRiskRatings, interventionTypes } from '~/schemas/intervention'
 import ResponsibilitySchema from '~/schemas/responsibility-schema.vue'
 import { activityForm } from '~/schemas/activity'
@@ -54,16 +54,19 @@ const load = function () {
   // console.log('node', node, parent.value)
   const node = getNode('interventionTypeId')
   node!.input(5)
+  console.log('node', node)
 }
 
 const riskRatingIsValid = function (node: any) {
   const ratings = getRiskRatings(node.value.responsibilityTypeCode)
   return ratings.includes(node.value.riskRatingAtIntervention)
 }
-const monday = function (node: any) {
-  return node.value.dummy === data.value.responsibilityTypeCode
-}
 
+const state = computed(() => {
+  return form?.value?.node?.context.state
+})
+
+const form = ref(null)
 </script>
 
 <template>
@@ -73,9 +76,10 @@ const monday = function (node: any) {
       <div class="myFormkit">
         <FormKit
           id="form"
+          ref="form"
+          v-slot="{ state: formState }"
           v-model="data"
-          type="form"
-          actions="submit"
+          dirty-behavior="touched"
           :submit-attrs="{
             inputClass: 'p-button p-component',
             wrapperClass: '',
@@ -83,17 +87,21 @@ const monday = function (node: any) {
           }"
           :validation-messages="{ riskRatingIsValid: 'Risk rating is not valid for this responsibility type'}"
           :validation-rules="{ riskRatingIsValid }"
+          actions="submit"
+          type="form"
           validation="riskRatingIsValid"
+          validation-visibility="touched"
           @submit="submitHandler"
         >
+          <pre>Touched: {{ formState.dirty }}</pre>
           <FormKit
             label="Load"
             type="button"
             @click="load"
           />
           <FormKitSchema
-            :schema="activityForm"
             :data="data"
+            :schema="activityForm"
           />
           <ResponsibilitySchema />
           <FormKit
@@ -112,13 +120,6 @@ const monday = function (node: any) {
             name="riskRatingAtIntervention"
             type="dropdown"
           />
-          <FormKit
-            help="At date of intervention"
-            label="Monday"
-            name="dummy"
-            type="text"
-            validation-visibility="live"
-          />
           <FormKitMessages />
         </formkit>
       </div>
@@ -127,6 +128,8 @@ const monday = function (node: any) {
       <h2>Formkit Debug</h2>
       <h3>Data</h3>
       <pre>{{ data }}</pre>
+      <h3>State</h3>
+      <pre>{{ state }}</pre>
     </div>
   </div>
 </template>

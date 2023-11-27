@@ -13,6 +13,6 @@ useHead({
   </NuxtLayout>
 </template>
 
-<style lang='scss'>
+<style lang="scss">
 @import 'App.scss';
 </style>
